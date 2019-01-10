@@ -14,4 +14,24 @@ Router.get('/:id',(req, res, next)=>{
     postController.getPost();
 })
 
+Router.post('/',(req, res,next)=>{
+    let postController  = new PostController(req, res ,next);
+    postController.addPost();
+})
+
+Router.delete('/:id',(req,res, next)=>{
+    let postController = new PostController(req, res, next);
+    postController.deletePost();
+})
+
+Router.delete('/',(req, res,next)=>{
+    let postController = new PostController(req, res ,next);
+    postController.deleteAllPost();
+})
+
+Router.put('/:id',(req, res ,next )=>{
+    let postController = new PostController(req, res ,next);
+    postController.updatePost();
+})
+
 module.exports = Router;
