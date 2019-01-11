@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+//Components
 import Post from './post';
 import EditPost from './editPost';
 
-class AllPost extends Component{
 
+//Services
+
+import PostService from '../../services/postsService';
+
+
+//Actions
+import {loadPosts} from '../../redux/actions/postActions';
+
+
+class AllPost extends Component{
+    constructor(props){
+        super(props);
+        this.getPosts();
+
+        
+    }
+
+    async getPosts(data){
+        let postService = new PostService();
+        let result = await postService.getAllPosts();
+        console.log("Recibido api->" +  JSON.stringify(result));
+    }
     render(){
         console.log(this.props.posts);
         return(
@@ -30,4 +53,14 @@ const mapStateToProps=(state) =>{
     }
 }
 
-export default connect(mapStateToProps)(AllPost);
+const mapDisptachToProps=(dispatch)=>{
+    let postService = new PostService();
+    return{
+       getPosts: () => postService.getAllPosts().then(res=>{
+           console.log("entra disptach");
+           dispatch(loadPosts(res))})
+    }
+}
+
+
+export default connect(mapStateToProps, mapDisptachToProps)(AllPost);
