@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {createPost} from "../../redux/actions/postActions";
+import postService from '../../services/postsService';
 
 class PostForm extends Component {
     handleSubmit=(e) => {
         e.preventDefault();
-        const Title = this.getTitle.value;
-        const Message = this.getMessage.value;
+        const title = this.getTitle.value;
+        const body = this.getMessage.value;
         const data = {
-            id: new Date(),
-            Title,
-            Message,
+            title,
+            body,
             edited: false
         }
-        this.props.dispatch({
-          type:'AÑADIR_POST',
-          data});
+
+        const PostService = new postService();
+        PostService.setPost(data).then((result)=>{
+             this.props.dispatch(createPost({type:'ANADIR_POST',data:result.data}));
+        })
+
         this.getTitle.value='';
         this.getMessage.value='';
     }

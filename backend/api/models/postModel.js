@@ -7,6 +7,9 @@ const Posts = Conn.define('posts',{
     },
     body:{
         type: Sequelize.STRING
+    },
+    edited:{
+        type: Sequelize.BOOLEAN
     }
 });
 module.exports = Posts;

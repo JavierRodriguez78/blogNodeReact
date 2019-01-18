@@ -1,11 +1,10 @@
 const postReducer = (state=[], action)=>{
     switch(action.type){
-        case 'AÑADIR_POST':
-            console.log("añadir post");
+        case 'ANADIR_POST':
             return state.concat([action.data]);
         case 'BORRAR_POST':
-            console.log("borrar post");
-            return state.filter((post)=> post.id !== action.id);
+            console.log("borrar post reducer"+ JSON.stringify(action.data));
+            return state.filter((post)=> post.id !== action.data.id);
         case 'EDITAR_POST':
             console.log("editar post");
             return state.map((post)=>post.id === action.id ? 
@@ -22,8 +21,7 @@ const postReducer = (state=[], action)=>{
                 } else return post;
             })
         case 'CARGA_POSTS':{
-            return[...state,
-                 action.data]
+            return state.concat(action.data);
         }
         default:
             return state;
