@@ -36,6 +36,16 @@ class PostService {
             console.error(error);
         }
     }
+
+    async editPost(post){
+        try{
+            let result = await axios.put(this.endPointPost+post.id, post);
+            return result;
+        }catch(error){
+            console.error(error);
+        }
+
+    }
 }
 
 export default PostService;

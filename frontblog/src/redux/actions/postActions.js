@@ -27,3 +27,13 @@ export const deletePost = (post)=>{
 
     }
 }
+
+export const editPost =(post)=>{
+    const PostService = new postService();
+    PostService.editPost(post);
+    return {
+        type: 'ACTUALIZAR',
+        id: post.id,
+        data: post
+    }
+}

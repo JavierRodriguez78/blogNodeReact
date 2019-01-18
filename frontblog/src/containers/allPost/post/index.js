@@ -21,6 +21,5 @@ class Post extends Component{
     }
 }
 
-//onClick={()=>this.props.dispatch({type:'BORRAR_POST',id:this.props.post.id})}>Borrar</button>
 
 export default connect()(Post);

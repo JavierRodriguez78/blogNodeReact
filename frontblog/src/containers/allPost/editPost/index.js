@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {editPost} from "../../../redux/actions/postActions";
+
 class EditPost extends Component{
     handleEdit = (e)=>{
         e.preventDefault();
-        const NewTitle = this.getTitle.value;
-        const NewMessage = this.getMessage.value;
+        const NewTitle = this.gettitle.value;
+        const NewMessage = this.getbody.value;
         const Data={
-            NewTitle,
-            NewMessage
+            id: this.props.post.id,
+            title: NewTitle,
+            body: NewMessage,
+            edited:false
         }
-        this.props.dispatch({type: 'ACTUALIZAR', id: this.props.post.id, data: Data});
+          this.props.dispatch(editPost(Data));
+
     }
     
     render(){
@@ -17,12 +22,12 @@ class EditPost extends Component{
             <div>
                 <h1>Editar un post</h1>
                 <form onSubmit={this.handleEdit} >
-                    <input required type="text"defaultValue={this.props.post.Title} placeholder="Titulo" 
-                    ref={(input)=>this.getTitle = input}/>
+                    <input required type="text"defaultValue={this.props.post.title} placeholder="Titulo"
+                    ref={(input)=>this.gettitle = input}/>
                     <br/><br/>
                     <textarea required rows="5" cols="28" 
-                    placeholder="Introduce el post" defaultValue={this.props.post.Message}
-                    ref= {(input)=>this.getMessage =input}/>
+                    placeholder="Introduce el post" defaultValue={this.props.post.body}
+                    ref= {(input)=>this.getbody =input}/>
                     <br/><br/>
                     <button>Editar</button>
                 </form>
