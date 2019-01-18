@@ -52,7 +52,7 @@ class AllPost extends Component{
 
 const mapStateToProps=(state) =>{
     return{
-        posts: state
+        posts: state.post
     }
 }
 

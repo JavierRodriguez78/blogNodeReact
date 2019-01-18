@@ -1,5 +1,8 @@
 const Controller = require('../controller');
 const UserModel = require('../../../api/models/userModel');
+const Passport = require('passport');
+const jwt = require('jsonwebtoken');
+
 class LoginController extends Controller{
 
     constructor(req, res ,next)
@@ -9,10 +12,16 @@ class LoginController extends Controller{
 
     async login(){
         let data = this.req.body;
+        console.log(JSON.stringify(data));
         try{
-            let userResult = await UserModel.findOne({where:{username:data.username}})
+            let userResult = await UserModel.findOne({where:{email:data.email}})
             if(!userResult) return this.returnJson(204, "no existe usuario");
-            this.returnJson(200,userResult);
+            const Token = jwt.sign(userResult.id, 'geekshubs');
+            const user = {
+                "username": userResult.username,
+                "token": Token
+            }
+            this.returnJson(200,user);
         }catch(error){
             this.returnJson(500,error);
         }

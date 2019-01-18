@@ -3,12 +3,27 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/backend/api/controllers/auth/loginController.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/backend/api/models/postModel.js">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/backend/api/models/userModel.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/frontblog/package.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/public/index.html">
           <value>
             <set />
           </value>
@@ -19,6 +34,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/frontblog/src/components/Commons/header.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/components/Commons/header/auth/index.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/components/Commons/header/header.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/components/Commons/header/index.js">
           <value>
             <set />
           </value>
@@ -63,6 +93,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/containers/logout/index.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/frontblog/src/containers/postForm/index.js">
           <value>
             <set />
@@ -78,12 +113,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/redux/actions/userActions.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/frontblog/src/redux/reducers/postReducer.js">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/redux/reducers/userReducer.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/frontblog/src/services/postsService.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/services/usersService">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/frontblog/src/services/usersService.js">
           <value>
             <set />
           </value>

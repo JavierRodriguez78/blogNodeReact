@@ -7,6 +7,9 @@ const User = Connect.define('users',{
     },
     password:{
         type: Sequelize.STRING
+    },
+    email:{
+        type: Sequelize.STRING
     }
 });
 
