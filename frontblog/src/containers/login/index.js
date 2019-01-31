@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../../redux/actions/userActions';
 import userService from "../../services/usersService";
+import {Redirect} from 'react-router-dom';
 
 class Login extends Component {
+   
     handleSubmit= async (e)=>{
         e.preventDefault();
         let email = this.getEmail.value;
@@ -14,9 +16,14 @@ class Login extends Component {
         }
         const UserService = new userService();
         let result = await UserService.loginUser(Data);
+         localStorage.setItem("Bearer",result.data.token);
+        localStorage.setItem("User", result.data.username);
         this.props.dispatch(loginUser(result));
+         window.location="/addPost";
+
     };
     render() {
+       
         return (
             <div className="container">
                 <div className="row">

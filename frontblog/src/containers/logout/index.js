@@ -4,21 +4,16 @@ import {logoutUser} from '../../redux/actions/userActions';
 import {Redirect} from 'react-router-dom';
 class LogOut extends Component {
 
-    state={
-        Redirect: false
-    };
+   
     handleSubmit= async (e)=>{
         e.preventDefault();
       this.props.dispatch(logoutUser());
-      this.setState(
-          ()=>({Redirect:true})
-          );
+       localStorage.removeItem("User");
+          localStorage.removeItem("Bearer");
+          window.location="/login";
     };
     render() {
-        if (this.state.Redirect === true){
-            return <Redirect to='/login' />;
-        }
-        return (
+                return (
 
             <div className="container">
               <form onSubmit={this.handleSubmit}>

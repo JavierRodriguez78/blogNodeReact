@@ -29,7 +29,7 @@ class EditPost extends Component{
                     placeholder="Introduce el post" defaultValue={this.props.post.body}
                     ref= {(input)=>this.getbody =input}/>
                     <br/><br/>
-                    <button>Editar</button>
+                    <button>Guardar</button>
                 </form>
             </div>
         )

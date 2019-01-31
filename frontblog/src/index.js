@@ -1,7 +1,7 @@
 //Librerias
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route, NavLink} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink, Redirect} from 'react-router-dom';
 
 
 //CSS
@@ -28,6 +28,25 @@ import Footer from './components/Commons/footer';
 const RootReducer = combineReducers({post:postReducer,user: userReducer})
 const Store = createStore(RootReducer);
 
+
+
+const IsLogged=()=>{
+    let user = localStorage.getItem("User");
+    
+    if(user) return true;
+    return false;
+
+}
+
+const verifyRoute=(Component)=>{
+    
+    return (IsLogged()) ? <Component />: <Redirect to="/login" />
+
+}
+
+const anonymRoute=(Component)=>{
+    return <Component />
+}
 const Routes=(
 
     <BrowserRouter>
@@ -36,8 +55,8 @@ const Routes=(
         <Switch>
             <Route path="/" component={App} exact />
             <Route path="/login" component={Login} exact />
-            <Route path="/addPost" component= {PostForm} exact />
-            <Route path="/getPost" component={AllPost} exact />
+            <Route path="/addPost" render = {()=>verifyRoute(PostForm)} exact />
+            <Route path="/getPost" render={()=>anonymRoute(AllPost)} exact />
             <Route path="/logout" component={LogOut} exact />
             <Route path='*' component={Notfound} />
         </Switch>
